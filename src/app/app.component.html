@@ -1,0 +1,16 @@
+<header class="app-bar">
+  <img class="logo" src="../assets/giphy-image.gif" />
+
+  <div class="search-container">
+    <input class="search-input" type="search" placeholder="Search here!" [(ngModel)]="searchValue"
+      (keypress)="onPressEnter($event)" (input)="emptyState()" />
+    <button class="search-button" (click)="searchGifs()">
+      <span class="material-symbols-outlined">search</span></button>
+  </div>
+</header>
+
+<main class="gifs-container">
+  <a *ngFor="let gif of gifs" [href]="gif.images.fixed_height.url" target="_blank">
+    <img [src]="gif.images.fixed_height.url" [alt]="gif.title" />
+  </a>
+</main>
